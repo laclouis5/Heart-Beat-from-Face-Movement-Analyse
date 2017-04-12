@@ -1,0 +1,47 @@
+A faire
+⁃ Mettre sous forme matricielle les données d’entrée (demander à l’autre groupe)
+⁃ Expliquer avantages/inconvénients méthode couleur/mouvement
+⁃ Expliquer l’historique du projet (colorimétrie année passée, ce qui a été fait sur le sujet par le MIT)
+⁃ Voir la méthode PCA si ça marche pas
+⁃ Aller manger
+
+12/04
+⁃ Voir si on peut pas sortir le retard directement du filtre (ok)
+
+05/04
+⁃ Enlever affiche dans fonction DSP et faire une fonction affichage_DSP (calcule + affiche -> utile?)
+⁃ Finir la fonction estim_alpha (division par alpha des signaux d’entrée) et enlever alpha de la structure, estim_alpha sortira une structure de signaux divisés par alpha (Zi) et un vecteur comprenant les alpha
+⁃ zi + E(zi) + estimation F_finale (+affichage des zi et de E(zi))
+
+29/03
+⁃ Voir la gueule des signaux que les autres nous ont envoyé
+⁃ Adaptation des signaux d’entrées (démarrent à 0)
+⁃ Adaptation signaux filtrées (coupage du début de la séquence due au retard du filtre ~109 échantillons)
+⁃ Faire une fonction pour calculer F moyen
+⁃ Envoyer code Matlab Justine(car CCE)
+
+22/03
+⁃ Fonction de moyenne et d’estimation de F terminée
+⁃ Création de la fonction qui détermine alpha (par la puissance)
+
+08/03
+⁃ Moyennage des différents signaux (bruit différent, amplitude différente)
+⁃ DSP du signal moyenné 
+⁃ Détection du maximum sur la DSP pour trouver la fréquence cardiaque
+
+01/03
+Autocorr du signal
+⁃ Recherche des pics dans l’intervalle 60bpm, 240bpm de l’autocar
+⁃ Recherche du max
+⁃ Calcul de la fréquence cardiaque
+
+15/02
+⁃ Filtrage avec fdatool
+⁃ Détection de pics
+
+09/02
+⁃ Création d’une structure "fichier" de la forme : {sig duree ips}. Sig peut contenir plusieurs signaux.
+⁃ Fonction décalage en fréquence pour filtrer facilement
+⁃ Fonction de filtrage Rif et Rii
+⁃ Fonction DSP qui prend en charge la structure fichier et qui peut afficher plusieurs DSP en même temps. Possibilité de rajouter des bornes xaxis et yaxis optionnelles.
+⁃ Fonction d’affichage de courbe qui prend en charge les structures de type fichier. Possibilité de choisir en option les bornes sur X et Y.

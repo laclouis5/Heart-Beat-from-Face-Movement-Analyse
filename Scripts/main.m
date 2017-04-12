@@ -48,7 +48,7 @@ fichier_reel_2.sig = [donnee1.y1' - donnee1.y1(1), donnee1.y2' - donnee1.y2(1), 
 load 'Filtres/filter.mat';
 
 simu_filtre       = filtrage(fichier_reel, BpFilter);
-simu_filtre.sig   = simu_filtre.sig(109:end, :); % bien verifier que la taille choisie est divisible par ips
+simu_filtre.sig   = simu_filtre.sig(mean(grpdelay(BpFilter)):end, :); % bien verifier que la taille choisie est divisible par ips
 simu_filtre.duree = length(simu_filtre.sig(:, 1))/simu_filtre.ips; 
 
 %% Refenetrage
@@ -74,9 +74,9 @@ F_moy_bpm = 60*F_moy;
 delta_freq      = 0.5; % en Hz
 [sig_z, alpha]  = estim_alpha(simu_filtre, F_moy, delta_freq, interv_f_card_bpm);
 F_finale        = estim_F_moy(sig_z);
+F_finale_bpm    = 60*F_finale;
 
 % % affichier le signal E(zi)= E(s(t))= E(s(t)+ni(t)/alphai) (dans l'hypothese d'un bruit blanc)
 % afficher_signal(sig_z, 0, sig_z.duree);
 % sig_z_moy = struct('sig', sum(sig_z.sig, 2)/nb_sig, 'duree', sig_z.duree, 'ips', ips);
 % afficher_signal(sig_z_moy, 0, sig_z_moy.duree);
-
