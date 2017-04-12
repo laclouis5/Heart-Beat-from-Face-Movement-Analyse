@@ -26,6 +26,7 @@ amp_bruit = 0.3;
 % structures
 simu         = struct('sig', zeros(taille, nb_sig), 'duree', duree, 'ips', ips);
 fichier_reel = struct('sig', zeros(taille, nb_sig), 'duree', duree, 'ips', ips);
+fichier_reel_2 = struct('sig', zeros(taille, nb_sig), 'duree', duree, 'ips', ips);
 
 %% Creation signaux simules
 for i = 1:1:nb_sig
@@ -35,13 +36,13 @@ end
 %% Signaux reels
 donnee1 = load('Donnee/coordonnees.mat');
 
-% fichier_reel.sig = [donnee1.y1' - donnee1.y1(1), donnee1.y2' - donnee1.y2(1), ...
-%     donnee1.y3' - donnee1.y3(1), donnee1.y4' - donnee1.y4(1), ...
-%     donnee1.y5' - donnee1.y5(1), donnee1.y6' - donnee1.y6(1)];
-
 fichier_reel.sig =  [donnee1.x1' - donnee1.x1(1), donnee1.x2' - donnee1.x2(1), ...
     donnee1.x3' - donnee1.x3(1), donnee1.x4' - donnee1.x4(1), ...
     donnee1.x5' - donnee1.x5(1), donnee1.x6' - donnee1.x6(1)];
+
+fichier_reel_2.sig = [donnee1.y1' - donnee1.y1(1), donnee1.y2' - donnee1.y2(1), ...
+    donnee1.y3' - donnee1.y3(1), donnee1.y4' - donnee1.y4(1), ...
+    donnee1.y5' - donnee1.y5(1), donnee1.y6' - donnee1.y6(1)];
 
 %% Filtrage
 load 'Filtres/filter.mat';
@@ -71,10 +72,10 @@ F_moy_bpm = 60*F_moy;
 
 %% Estimation de alpha_i par la DSP
 delta_freq      = 0.5; % en Hz
-[sig_z, alpha]  = estim_alpha(simu_filtre, F_moy, delta_freq);
+[sig_z, alpha]  = estim_alpha(simu_filtre, F_moy, delta_freq, interv_f_card_bpm);
 F_finale        = estim_F_moy(sig_z);
 
-% %Affichier le signal E(zi)= E(s(t))= E(s(t)+ni(t)/alphai) (dans l'hypoth?se d'un bruit blanc)
+% % affichier le signal E(zi)= E(s(t))= E(s(t)+ni(t)/alphai) (dans l'hypothese d'un bruit blanc)
 % afficher_signal(sig_z, 0, sig_z.duree);
 % sig_z_moy = struct('sig', sum(sig_z.sig, 2)/nb_sig, 'duree', sig_z.duree, 'ips', ips);
 % afficher_signal(sig_z_moy, 0, sig_z_moy.duree);

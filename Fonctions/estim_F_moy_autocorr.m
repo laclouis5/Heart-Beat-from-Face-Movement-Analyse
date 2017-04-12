@@ -1,5 +1,4 @@
 function [ Freq_estime ] = estim_F_moy_autocorr( fichier, interv_f_card_T )
-
     signal = fichier.sig;
     ips = fichier.ips;
     taille = fichier.ips*fichier.duree;
@@ -13,6 +12,5 @@ function [ Freq_estime ] = estim_F_moy_autocorr( fichier, interv_f_card_T )
     [pks, locs] = findpeaks(autocorr(round(taille+0.25*ips):round(taille+ips)));
     T           = locs(pks == max(pks))/ips + 0.25;
     Freq_estime = 1/T*60;
-
 end
 

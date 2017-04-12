@@ -5,6 +5,9 @@ function [ sortie, alpha ] = estim_alpha( fichier, F_moy, delta_freq, interv_f_c
     taille    = fichier.ips*fichier.duree;
     debut_fft = taille/2 + 1;
     
+    sz = size(fichier.sig);
+    lg = sz(1);
+    
     %Calcul DSP
     DSP_sig = DSP(fichier); %DSP sur fichier.sig
     
@@ -30,8 +33,9 @@ function [ sortie, alpha ] = estim_alpha( fichier, F_moy, delta_freq, interv_f_c
     alpha = P1./P2;
     
     %Calcul sig/alpha(i)
-    z = fichier.sig./alpha;
-    sig_z = struct('sig', z, 'duree', fichier.duree, 'ips', fichier.ips);
+    alpha2 = repmat(alpha, lg, 1);
+    z      = (fichier.sig)./alpha2;
+    sig_z  = struct('sig', z, 'duree', fichier.duree, 'ips', fichier.ips);
     
     sortie = sig_z;
 end
