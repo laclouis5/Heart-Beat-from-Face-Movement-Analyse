@@ -80,3 +80,6 @@ F_finale_bpm    = 60*F_finale;
 % afficher_signal(sig_z, 0, sig_z.duree);
 % sig_z_moy = struct('sig', sum(sig_z.sig, 2)/nb_sig, 'duree', sig_z.duree, 'ips', ips);
 % afficher_signal(sig_z_moy, 0, sig_z_moy.duree);
+
+% Essai méthode PCA
+f_pca = methode_PCA(simu_filtre);
