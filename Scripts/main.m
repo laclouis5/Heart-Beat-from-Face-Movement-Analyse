@@ -6,7 +6,7 @@ clear;
 f_card = 80/60; 
 f_resp    = 0.20;
 
-% d?fini la plage de freq cardiaque possible
+% defini la plage de freq cardiaque possible
 interv_f_card_bpm = [60 240];
 interv_f_card_Hz  = interv_f_card_bpm/60;
 interv_f_card_T   = 1./interv_f_card_Hz(end:-1:1);
@@ -76,10 +76,10 @@ delta_freq      = 0.5; % en Hz
 F_finale        = estim_F_moy(sig_z);
 F_finale_bpm    = 60*F_finale;
 
-% % affichier le signal E(zi)= E(s(t))= E(s(t)+ni(t)/alphai) (dans l'hypothese d'un bruit blanc)
+% % afficher le signal E(zi)= E(s(t))= E(s(t)+ni(t)/alphai) (dans l'hypothese d'un bruit blanc)
 % afficher_signal(sig_z, 0, sig_z.duree);
 % sig_z_moy = struct('sig', sum(sig_z.sig, 2)/nb_sig, 'duree', sig_z.duree, 'ips', ips);
 % afficher_signal(sig_z_moy, 0, sig_z_moy.duree);
 
-% Essai méthode PCA
-f_pca = methode_PCA(simu_filtre);
+% Essai methode PCA
+F_pca = methode_PCA(simu_filtre);
