@@ -1,8 +1,14 @@
 A faire
 - Corriger méthode PCA (bonne échelle etc …)
-- Mettre sous forme matricielle les données d’entrée (demander à l’autre groupe)
 - Expliquer avantages/inconvénients méthode couleur/mouvement
 - Expliquer l’historique du projet (colorimétrie année passée, ce qui a été fait sur le sujet par le MIT)
+
+26/04
+- Modification du format des des données en entrée
+- Modification du code pour le rendre plus générique
+- Ajout des descriptions de chaque fonction
+- Création d’une fonction pour le fenêtrage
+- Ajout de nouvelles donnée d’entrée
 
 12/04
 - Voir si on peut pas sortir le retard directement du filtre (ok)
@@ -10,7 +16,7 @@ A faire
 
 05/04
 - Enlever affiche dans fonction DSP et faire une fonction affichage_DSP (calcule + affiche -> utile?)
-- Finir la fonction estim_alpha (division par alpha des signaux d’entrée) et enlever alpha de la structure, estim_alpha sortira une structure de signaux divisés par alpha (Zi) et un vecteur comprenant les alpha
+- Fonction estim_alpha (division par alpha des signaux d’entrée) et enlever alpha de la structure, estim_alpha sortira une structure de signaux divisés par alpha (Zi) et un vecteur comprenant les alpha
 - zi + E(zi) + estimation F_finale (+affichage des zi et de E(zi))
 
 29/03
