@@ -5,7 +5,7 @@ fe     = fichier.ips;
 faxis  = (-fe/2:fe/taille:fe/2 - fe/taille);
 
 
-[COEFF,SCORE] = princomp(fichier.sig);
+[COEFF,SCORE] = pca(fichier.sig);
 s = SCORE(:,2);
 
 DSP = fftshift(abs(fft(s, taille)));
