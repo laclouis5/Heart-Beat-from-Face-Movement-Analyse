@@ -1,4 +1,9 @@
-function [ sortie, alpha ] = estim_alpha( fichier, F_moy, delta_freq, interv_f_card )
+% Cette fonction prend en entree un fichier qui contient un ensemble de
+% signaux et va calculer un rapport de puissance entre 2 zones distinctes
+% de la DSP de ces signaux pour chaque signal puis il va diviser les
+% signaux d'entree par ce rapport de puissance. Plus de details sur la
+% methode utilisee dans le rapport de projet
+function [sortie, alpha] = estim_alpha(fichier, F_moy, delta_freq, interv_f_card)
     
     interv_f_card_Hz  = interv_f_card/60;
     

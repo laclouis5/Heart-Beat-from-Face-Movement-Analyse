@@ -1,4 +1,7 @@
-function [ Freq_estime ] = estim_F_moy_autocorr( fichier, interv_f_card_T )
+% Meme fonctionnement que F_moy mais applique a une methode par
+% autocorrelation plutot que par la DSP. Methode testee mais non retenue
+% pour notre algorithme
+function [Freq_estime] = estim_F_moy_autocorr(fichier, interv_f_card_T)
     signal = fichier.sig;
     ips = fichier.ips;
     taille = fichier.ips*fichier.duree;

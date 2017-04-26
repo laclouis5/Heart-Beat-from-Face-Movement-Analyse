@@ -1,8 +1,8 @@
 % fichier : structure de type {signal duree ips}
 function [] = afficher_signal( fichier, varargin )
 
-    fe     = fichier.ips;
-    t      = 0:1/fe:(fichier.duree - 1/fe);
+    fe = fichier.ips;
+    t  = 0:1/fe:(fichier.duree - 1/fe);
     
     % permet de specifier les bornes d'affichage
     nbargin = length(varargin);
