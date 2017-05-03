@@ -1,5 +1,5 @@
 % fichier : structure de type {signal duree ips}
-function [] = afficher_signal( fichier, varargin )
+function [] = afficher_signal(fichier, varargin)
 
     fe = fichier.ips;
     t  = 0:1/fe:(fichier.duree - 1/fe);
