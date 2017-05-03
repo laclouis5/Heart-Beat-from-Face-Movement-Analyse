@@ -40,20 +40,20 @@ fichier4 = charger('Donnee/donnees4.mat');
 %% Filtrage
 load 'Filtres/filter.mat';
 
-simu_filtre       = filtrage(fichier3, BpFilter);
+simu_filtre       = filtrage(fichier1, BpFilter);
 simu_filtre.sig   = simu_filtre.sig(mean(grpdelay(BpFilter)):end, :); % bien verifier que la taille choisie est divisible par ips
 simu_filtre.duree = length(simu_filtre.sig(:, 1))/simu_filtre.ips; 
 
 %% Refenetrage
 % O permet d'afficher toutes les courbes
-[entree, sig_filtre] = fenetrage(0, fichier3, simu_filtre);
+[entree, sig_filtre] = fenetrage(1, fichier1, simu_filtre);
 
 %% Affichage
 afficher_signal(entree, 0, 10);
 afficher_signal(sig_filtre, 0, simu_filtre.duree);
 
 aff_DSP(entree, 0, 15, 0, 50);
-aff_DSP(sig_filtre, 0, 15, 0, 50);
+aff_DSP(sig_filtre, 0, 15, 0, 10);
 
 %% Estimation freq cardiaque moyenne
 F_moy     = estim_F_moy(simu_filtre);
