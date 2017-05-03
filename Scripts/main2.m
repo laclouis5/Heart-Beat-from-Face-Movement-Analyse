@@ -25,11 +25,14 @@ amp_bruit = 0.5;
 % structures
 fichier  = struct('sig', zeros(taille, nb_sig), 'duree', duree, 'ips', ips);
 
+boucle = 1;
+F = zeros(20, 3);
+
 %% boucle de calcul
 for f_card = 60:10:250
-
+    
     for i = 1:1:nb_sig
-        fichier.sig(:, i) = creer_signal(duree, ips, f_card, amp_card(i), f_resp, amp_resp, amp_bruit);
+        fichier.sig(:, i) = creer_signal(duree, ips, f_card/60, amp_card(i), f_resp, amp_resp, amp_bruit);
     end
 
     load 'Filtres/filter.mat';
@@ -48,5 +51,19 @@ for f_card = 60:10:250
 
     F_pca = methode_PCA(simu_filtre)*60;
     
-    F = []
+    F(boucle, 1) = f_card;
+    F(boucle, 2) = F_finale_bpm;
+    F(boucle, 3) = F_pca;
+    
+    boucle = boucle + 1;
+ 
 end
+
+%% Affichage
+echelle = 60:10:250;
+figure, plot(echelle, abs(F(:, 1) - F(:, 2)));
+title('courbe d erreur entre la freq cardiaque estimee et la realite');
+xlabel('frequence en bpm')
+ylabel('erreur absolue');
+xlim([60, 250]);
+ylim([0, 10]);
