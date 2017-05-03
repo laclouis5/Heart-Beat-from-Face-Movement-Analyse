@@ -3,8 +3,8 @@ clear;
 
 %% Param
 % parametres biologiques pour simulation
-f_card = 76/60; 
-f_resp    = 0.20;
+f_card    = 100/60; 
+f_resp    = 35/60;
 
 % defini la plage de freq cardiaque possible
 interv_f_card_bpm = [60 240];
@@ -20,8 +20,8 @@ nb_sig = 10; % nb de signaux generes
 % parametres simulation
 pas       = 0.1; % pas entre deux valeurs de amp_card
 amp_card  = pas:pas:1; 
-amp_resp  = 10;
-amp_bruit = 1;
+amp_resp  = 5;
+amp_bruit = 0.5;
 
 % structures
 simu  = struct('sig', zeros(taille, nb_sig), 'duree', duree, 'ips', ips);
@@ -37,19 +37,25 @@ end
 % fichier3 = charger('Donnee/donnees3.mat');
 fichier4 = charger('Donnee/donnees4.mat');
 
+fichier_Louis   = charger('Donnee/Donnees_Louis.mat');
+fichier_Louis_2 = charger('Donnee/Donnees_Louis2.mat');
+fichier_Justine = charger('Donnee/Donnees_Justine.mat');
+
+fichier = simu;
+
 %% Filtrage
 load 'Filtres/filter.mat';
 
-simu_filtre       = filtrage(simu, BpFilter);
+simu_filtre       = filtrage(fichier, BpFilter);
 simu_filtre.sig   = simu_filtre.sig(mean(grpdelay(BpFilter)):end, :); % bien verifier que la taille choisie est divisible par ips
 simu_filtre.duree = length(simu_filtre.sig(:, 1))/simu_filtre.ips; 
 
 %% Refenetrage
 % O permet d'afficher toutes les courbes
-[entree, sig_filtre] = fenetrage(0, simu, simu_filtre);
+[entree, sig_filtre] = fenetrage(5, fichier, simu_filtre);
 
 %% Affichage
-afficher_signal(entree, 0, simu.duree);
+afficher_signal(entree, 0, fichier.duree);
 afficher_signal(sig_filtre, 0, simu_filtre.duree);
 
 aff_DSP(entree, 0, 15, 0, 100);
@@ -66,8 +72,3 @@ F_finale        = estim_F_moy(sig_z);
 F_finale_bpm    = 60*F_finale;
 
 F_pca = methode_PCA(simu_filtre)*60;
-
-% % afficher le signal E(zi)= E(s(t))= E(s(t)+ni(t)/alphai) (dans
-% l'hypothese d'un bruit blanc) afficher_signal(sig_z, 0, sig_z.duree);
-% sig_z_moy = struct('sig', sum(sig_z.sig, 2)/nb_sig, 'duree', sig_z.duree,
-% 'ips', ips); afficher_signal(sig_z_moy, 0, sig_z_moy.duree);

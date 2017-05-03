@@ -20,6 +20,6 @@ function [ F_moy ] = estim_F_moy(fichier)
     [ord, absc] = findpeaks(sortie_fenetree, duree);
     F_moy       = absc(ord == max(ord)); % frequence en Hz
 
-    figure, findpeaks(sortie_fenetree, duree);
+    % figure, findpeaks(sortie_fenetree, duree);
+    
 end
-
