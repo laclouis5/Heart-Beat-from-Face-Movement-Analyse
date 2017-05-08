@@ -16,7 +16,7 @@ function [] = afficher_signal(fichier, varargin)
         error('nombre d arguments incorrects');
     end
     
-    grid;
+    grid minor;
     title('signal d interet');
     xlabel('temps en secondes');
     ylabel('amplitude');

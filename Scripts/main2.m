@@ -67,3 +67,4 @@ xlabel('frequence en bpm')
 ylabel('erreur absolue');
 xlim([60, 250]);
 ylim([0, 10]);
+grid

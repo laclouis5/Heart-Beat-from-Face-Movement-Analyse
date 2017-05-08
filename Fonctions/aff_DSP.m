@@ -26,7 +26,7 @@ function [ sortie ] = aff_DSP( fichier, varargin )
     
     title('S(f) TF du signal s(t)');
     xlabel('Frequence en Hz'), ylabel('|S(f)|');
-    grid;
+    grid minor;
     
     sortie = DSP;
 end
