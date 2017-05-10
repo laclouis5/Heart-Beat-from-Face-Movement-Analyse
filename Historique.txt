@@ -1,7 +1,16 @@
-A faire
-- Corriger méthode PCA (bonne échelle etc …)
-- Expliquer avantages/inconvénients méthode couleur/mouvement
-- Expliquer l’historique du projet (colorimétrie année passée, ce qui a été fait sur le sujet par le MIT)
+Colorimétrie sous partie de l’intro
+"Des chercheurs" et pas MIT
+Mettre les références
+Dire avantage mouvement du visage (pas couleur de peau, masque, de dos …)
+Montrer sous forme équation la partie MRC -> estimer alpha pour enlever le bruit mieux expliquer avec equations (mettre en valeur l’encadré bleu figure 4)
+
+Montrer qu’on a un impact positif de la MRC car écart + important entre le bruit et le haut du pic de fréquence cardiaque
+Ajouter signal à la sortie de la MRC
+
+Dire pas de résultats probants en réel
+
+A l’oral : présenter autre projet bonhomme année dernière 
+Monter qu’on est allées jusqu’au bout de la démarche mais pas de corrélation entre l’oxy et notre algo, ne pas finir par une note négative ne pas commencer non plus.
 
 26/04
 - Modification du format des des données en entrée
