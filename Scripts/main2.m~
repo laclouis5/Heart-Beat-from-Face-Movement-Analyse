@@ -28,7 +28,7 @@ fichier  = struct('sig', zeros(taille, nb_sig), 'duree', duree, 'ips', ips);
 boucle = 1;
 F = zeros(20, 3);
 
-step = 4;
+step = 5;
 %% boucle de calcul
 for f_card = 60:step:250
     
@@ -62,13 +62,14 @@ end
 
 %% Affichage
 echelle = 60:step:250;
-Moy_erreur = 1/numel(F(:, 1))*sum(abs(F(:, 1) - F(:, 3)));
-figure, plot(echelle, abs(F(:, 1) - F(:, 3)));
+Moy_erreur = 1/numel(F(:, 1))*sum(abs(F(:, 1) - F(:, 2)));
+figure, plot(echelle, abs(F(:, 1) - F(:, 2)));
 title('courbe d erreur entre la freq cardiaque estimee et la realite');
 xlabel('frequence en bpm')
 ylabel('erreur absolue');
 xlim([60, 250]);
 ylim([0, 10]);
 grid
-hold on;
-plot(echelle, Moy_erreur*ones(1, numel(echelle)));
+hold on
+ON = ones(1, numel()
+plot(echelle, Moy_erreur*ones(echelle));

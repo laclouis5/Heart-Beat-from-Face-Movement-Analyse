@@ -1,4 +1,4 @@
-% cettte fonction estime la fr?quence moyenne grossierement en sommant les
+% cettte fonction estime la frequence moyenne grossierement en sommant les
 % signaux puis en calculant leur DSP et enfin en trouvant le maximun de
 % celle-ci dans l intervale des frequences cardiaques possibles
 function [ F_moy ] = estim_F_moy(fichier)

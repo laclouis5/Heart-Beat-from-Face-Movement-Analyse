@@ -66,7 +66,7 @@ F_moy     = estim_F_moy(simu_filtre);
 F_moy_bpm = 60*F_moy;
 
 %% Estimation de alpha_i par la DSP
-delta_freq      = 0.5; % en Hz
+delta_freq      = 0.5; % largueur moyenne d un pic de freq cardiaque dans la fft
 [sig_z, alpha]  = estim_alpha(simu_filtre, F_moy, delta_freq, interv_f_card_bpm);
 F_finale        = estim_F_moy(sig_z);
 F_finale_bpm    = 60*F_finale;
