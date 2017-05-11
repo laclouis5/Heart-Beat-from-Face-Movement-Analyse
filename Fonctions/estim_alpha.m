@@ -39,7 +39,7 @@ function [sortie, alpha] = estim_alpha(fichier, F_moy, delta_freq, interv_f_card
     
     %Calcul sig/alpha(i)
     alpha2 = repmat(alpha, lg, 1);
-    z      = (fichier.sig)./alpha2;
+    z      = (fichier.sig).*alpha2;
     sig_z  = struct('sig', z, 'duree', fichier.duree, 'ips', fichier.ips);
     
     sortie = sig_z;
