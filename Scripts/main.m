@@ -41,7 +41,7 @@ fichier_Louis   = charger('Donnee/Donnees_Louis.mat');
 fichier_Louis_2 = charger('Donnee/Donnees_Louis2.mat');
 fichier_Justine = charger('Donnee/Donnees_Justine.mat');
 
-fichier = simu;
+fichier = fichier_Louis;
 
 %% Filtrage
 load 'Filtres/filter.mat';
@@ -52,7 +52,7 @@ simu_filtre.duree = length(simu_filtre.sig(:, 1))/simu_filtre.ips;
 
 %% Refenetrage
 % O permet d'afficher toutes les courbes
-[entree, sig_filtre] = fenetrage(5, fichier, simu_filtre);
+[entree, sig_filtre] = fenetrage(0, fichier, simu_filtre);
 
 %% Affichage
 afficher_signal(entree, 0, fichier.duree);
